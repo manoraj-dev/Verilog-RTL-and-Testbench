@@ -39,3 +39,7 @@ synth_output/
 # Python temporary files
 __pycache__/
 *.pyc
+*.orig
+*.pyc
+__pycache__/
+*.json
