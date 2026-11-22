@@ -1,0 +1,8 @@
+read_verilog -noautowire ../src/dut.v
+hierarchy -check -top decoder_3to8
+proc
+opt_clean
+
+##### Check unintentional inferred latches, multi-driven, no-drivers, combinatorial-loops
+select -assert-none t:$dlatch t:$adlatch t:$dlatchsr
+check -assert

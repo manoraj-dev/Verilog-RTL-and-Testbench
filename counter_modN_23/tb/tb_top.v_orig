@@ -1,0 +1,51 @@
+`timescale 1ns/1ns
+
+`include "../src/dut.v"
+
+module tb_top;
+
+reg clk;
+reg rst;
+wire [WIDTH-1:0] y;
+
+
+
+
+initial 
+begin
+$dumpfile("waveform.vcd");
+$dumpvars(0, tb_top);
+end 
+
+
+
+counter_mod_N #(.N(10),.WIDTH(4)) dut (.clk(clk),.rst(rst),.y(y));
+
+initial
+begin
+clk = 0;
+forever #5 clk = ~clk;
+end
+
+initial
+begin
+$monitor("Time=%0t rst=%b count=%d",$time, rst, y);
+repeat(20) 
+clk=0;
+rst = 1;
+#10;
+
+rst = 0;
+
+#10;
+
+rst = 1;
+#10;
+
+rst = 0;
+#1;
+
+$finish;
+end
+
+endmodule

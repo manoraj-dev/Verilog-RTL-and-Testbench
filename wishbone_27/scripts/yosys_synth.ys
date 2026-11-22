@@ -1,0 +1,14 @@
+read_liberty -lib /opt/OpenROAD-flow-scripts/flow/platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+read_verilog ../src/dp_ram_wb.v
+synth
+opt
+techmap
+opt
+dfflibmap -liberty /opt/OpenROAD-flow-scripts/flow/platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+opt
+hilomap -singleton -hicell sg13g2_tiehi L_HI -locell sg13g2_tielo L_LO
+abc -liberty /opt/OpenROAD-flow-scripts/flow/platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+opt
+clean
+write_verilog -v -noattr gates.v
+show 

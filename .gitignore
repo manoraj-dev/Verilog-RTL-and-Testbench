@@ -1,0 +1,41 @@
+# Simulation waveform files
+*.vcd
+*.fst
+*.lxt
+*.lxt2
+*.ghw
+*.vvp
+*.wlf
+
+# Compiled files
+*.o
+*.exe
+
+# Simulator generated directories
+work/
+xsim.dir/
+questa_work/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Synthesis generated directories
+build/
+synth_output/
+*.log
+/\*./
+# Simulation and synthesis output
+**/run/gates.v
+**/run/waveform.vcd
+**/run/waveform.v
+**/run/*.log
+**/run/obj_dir/
+**/run/build/
+
+# Python temporary files
+__pycache__/
+*.pyc
